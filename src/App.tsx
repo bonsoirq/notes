@@ -1,6 +1,7 @@
 import './App.css';
 import { Layout } from './Layout';
 import NewNote from './notes/NewNote';
+import NotesList from './notes/NotesList';
 import NotesProvider from './notes/NotesProvider';
 
 const App = () => {
@@ -9,6 +10,7 @@ const App = () => {
       <NotesProvider>
         <Layout>
           <NewNote />
+          <NotesList />
         </Layout>
       </NotesProvider>
     </div>

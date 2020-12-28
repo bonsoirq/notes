@@ -1,13 +1,17 @@
-import { isBlank } from '../lib/string';
+import { isBlank, randomString } from '../lib/string';
 import { useFormik } from 'formik';
-import React from 'react';
+import React, { useContext } from 'react';
+import { NoteContext } from './note-context';
+import { Note } from './note';
 
 const NewNote = () => {
+  const { add } = useContext(NoteContext);
 
   const {
     handleSubmit,
     handleBlur,
     handleChange,
+    resetForm,
     values,
     errors,
     touched,
@@ -24,7 +28,14 @@ const NewNote = () => {
       return errors
     },
     onSubmit: values => {
-      // TODO: add note to context
+      const note: Note = {
+        id: randomString(),
+        content: values.content,
+        createdAt: new Date(),
+      }
+
+      add(note)
+      resetForm()
     }
   })
   return (
@@ -36,8 +47,8 @@ const NewNote = () => {
         value={values.content}
         name="content"
         placeholder="Note text"
-        cols={30}
-        rows={10}
+        cols={80}
+        rows={20}
       />
       {touched.content && errors.content}
       <button
