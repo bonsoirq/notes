@@ -1,3 +1,4 @@
+import Markdown from 'markdown-to-jsx';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Note } from './note';
@@ -23,7 +24,7 @@ type Props = {
 
 const NoteEntry = ({ note, onDelete }: Props) => {
   return <div key={note.id}>
-    {note.content}
+    <Markdown>{note.content}</Markdown>
     <Link to={`/${note.id}`}>{note.createdAt.toLocaleDateString()}</Link>
     <button onClick={onDelete}>Delete</button>
   </div>

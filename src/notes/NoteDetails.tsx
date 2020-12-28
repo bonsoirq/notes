@@ -1,3 +1,4 @@
+import Markdown from 'markdown-to-jsx';
 import React from 'react';
 import { Note } from './note';
 
@@ -18,7 +19,7 @@ const NoteDetails = ({ note, onBack, onDelete }: Props) => {
           Delete
         </button>
       </div>
-      {note.content}
+      <Markdown>{note.content}</Markdown>
       <span>{note.createdAt.toLocaleDateString()}</span>
     </div>
   );
