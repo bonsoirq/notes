@@ -16,6 +16,7 @@ const NewNote = () => {
     errors,
     touched,
     isValid,
+    isSubmitting,
   } = useFormik({
     initialValues: {
       content: '',
@@ -50,7 +51,7 @@ const NewNote = () => {
       />
       <span className="error">{touched.content && errors.content}</span>
       <button
-        disabled={!isValid}
+        disabled={!isValid || isSubmitting}
         type="submit"
       >
         Add note

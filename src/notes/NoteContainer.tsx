@@ -19,9 +19,9 @@ const NoteContainer = ({ match , history}: Props) => {
     history.goBack()
   }
 
-  const handleDelete = (note: Note) => {
+  const handleDelete = async (note: Note) => {
     if (window.confirm('Are you sure?')) {
-      remove(note)
+      await remove(note)
       history.push('/')
     }
   }

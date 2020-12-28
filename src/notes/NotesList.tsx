@@ -9,7 +9,7 @@ const NotesList = () => {
   return (
     <div className="NotesList">
       <h1>Latest notes</h1>
-      {notes.map(x => <NoteEntry note={x} onDelete={() => {
+      {notes.map(x => <NoteEntry key={x.id} note={x} onDelete={() => {
         if (window.confirm('Are you sure?')) {
           remove(x)
         }
@@ -24,7 +24,7 @@ type Props = {
 }
 
 const NoteEntry = ({ note, onDelete }: Props) => {
-  return <div className="NoteEntry" key={note.id}>
+  return <div className="NoteEntry">
     <div className="content">
       <Markdown>{note.content}</Markdown>
       <Link

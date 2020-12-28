@@ -5,10 +5,14 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.3.6",
+    "@apollo/server": "^3.0.0-alpha.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "apollo-server": "^2.19.1",
     "formik": "^2.2.6",
+    "graphql": "^15.4.0",
     "markdown-to-jsx": "^7.1.0",
     "normalize.css": "^8.0.1",
     "react": "^17.0.1",
@@ -19,7 +23,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently 'react-scripts start' 'node src/apollo/server.js'",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -44,6 +48,7 @@
   },
   "devDependencies": {
     "@types/react": "^17.0.0",
-    "@types/react-router-dom": "^5.1.6"
+    "@types/react-router-dom": "^5.1.6",
+    "concurrently": "^5.3.0"
   }
 }
