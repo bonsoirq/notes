@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { Note } from './note';
 import { NoteContext } from './note-context';
 
@@ -23,7 +24,7 @@ type Props = {
 const NoteEntry = ({ note, onDelete }: Props) => {
   return <div key={note.id}>
     {note.content}
-    <a href={`/${note.id}`}>{note.createdAt.toLocaleDateString()}</a>
+    <Link to={`/${note.id}`}>{note.createdAt.toLocaleDateString()}</Link>
     <button onClick={onDelete}>Delete</button>
   </div>
 }
