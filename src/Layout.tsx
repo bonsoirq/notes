@@ -6,9 +6,9 @@ type Props = {
 
 export const Layout = ({ children }: Props) => {
   return (
-    <div>
+    <div className="Layout">
       <nav>
-        <h1>Notes App</h1>
+        <h3>Notes App</h3>
       </nav>
       <main>
         {children}

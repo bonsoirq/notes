@@ -1,3 +1,4 @@
+import 'normalize.css'
 import './App.css';
 import { Layout } from './Layout';
 import NewNote from './notes/NewNote';

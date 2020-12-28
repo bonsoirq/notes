@@ -39,18 +39,16 @@ const NewNote = () => {
     }
   })
   return (
-    <form onSubmit={handleSubmit}>
-      <h3>Note</h3>
+    <form className="NewNote" onSubmit={handleSubmit}>
+      <h4>Note</h4>
       <textarea
         onBlur={handleBlur}
         onChange={handleChange}
         value={values.content}
         name="content"
         placeholder="Note text"
-        cols={80}
-        rows={20}
       />
-      {touched.content && errors.content}
+      <span className="error">{touched.content && errors.content}</span>
       <button
         disabled={!isValid}
         type="submit"

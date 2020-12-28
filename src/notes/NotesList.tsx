@@ -7,7 +7,8 @@ import { NoteContext } from './note-context';
 const NotesList = () => {
   const { notes, remove } = useContext(NoteContext);
   return (
-    <div>
+    <div className="NotesList">
+      <h1>Latest notes</h1>
       {notes.map(x => <NoteEntry note={x} onDelete={() => {
         if (window.confirm('Are you sure?')) {
           remove(x)
@@ -23,10 +24,20 @@ type Props = {
 }
 
 const NoteEntry = ({ note, onDelete }: Props) => {
-  return <div key={note.id}>
-    <Markdown>{note.content}</Markdown>
-    <Link to={`/${note.id}`}>{note.createdAt.toLocaleDateString()}</Link>
-    <button onClick={onDelete}>Delete</button>
+  return <div className="NoteEntry" key={note.id}>
+    <div className="content">
+      <Markdown>{note.content}</Markdown>
+      <Link
+        className="link"
+        to={`/${note.id}`}
+        onClick={() => window.scrollTo(0, 0)}
+      >
+          {note.createdAt.toLocaleDateString()}
+      </Link>
+    </div>
+    <div className="actions">
+      <button className="delete-button" onClick={onDelete}>Delete note</button>
+    </div>
   </div>
 }
 

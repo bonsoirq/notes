@@ -10,17 +10,19 @@ type Props = {
 
 const NoteDetails = ({ note, onBack, onDelete }: Props) => {
   return (
-    <div>
-      <div>
+    <div className='NoteDetails'>
+      <div className="actions">
         <button onClick={onBack}>
           Go back
           </button>
-        <button onClick={() => onDelete(note)}>
-          Delete
+        <button className="delete-button" onClick={() => onDelete(note)}>
+          Delete note
         </button>
       </div>
-      <Markdown>{note.content}</Markdown>
-      <span>{note.createdAt.toLocaleDateString()}</span>
+      <div className="content">
+        <Markdown>{note.content}</Markdown>
+        <span className="date">{note.createdAt.toLocaleDateString()}</span>
+      </div>
     </div>
   );
 }

@@ -1,38 +1,130 @@
-.App {
+:root {
+  --element-bg-color: #EAEAEA;
+  --element-text-color: #555;
+  --danger-color: #EA5655;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Layout nav {
+  background-color: var(--element-bg-color);
+}
+
+.Layout nav h3 {
+  font-size: 14pt;
+  font-weight: normal;
+  color: var(--element-text-color);
+  padding: 16px;
+  margin: 0;
+}
+
+.Layout main {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.NewNote {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.NewNote .error {
+  margin-top: 8px;
+  height: 16px;
+  color: var(--danger-color);
+  font-size: 10pt;
+}
+
+button {
+  padding: 8px 16px;
+  color: #333;
+  background: white;
+  border: 1px solid var(--element-bg-color);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:disabled {
+  color: var(--element-bg-color);
+}
+
+.NewNote h4 {
+  color: var(--element-text-color);
+}
+
+.NewNote textarea {
+  height: 128px;
+}
+
+.NewNote button {
+  margin: 0 auto;
+}
+
+.NotesList h1 {
+  color: var(--element-text-color);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.delete-button {
+  color: var(--element-bg-color);
+  background-color: var(--danger-color);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.NoteEntry {
+  display: flex;
+  background-color: var(--element-bg-color);
+  color: var(--element-text-color);
+  border-radius: 4px;
+  padding: 8px 16px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.NoteEntry .content {
+  width: 80%;
+}
+
+.NoteEntry .link {
+  color: var(--element-text-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.NoteEntry .actions {
+  width: 20%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.NoteEntry .actions button {
+  margin: 0 auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.NoteDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.NoteDetails .actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 32px 48px;
+}
+
+.NoteDetails .content {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--element-bg-color);
+  color: var(--element-text-color);
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.NoteDetails .date {
+  text-align: end;
 }
